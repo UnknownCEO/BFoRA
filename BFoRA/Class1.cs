@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using HarmonyLib;
+﻿using HarmonyLib;
 using UnityModManagerNet;
 using System;
 using System.Reflection;
@@ -28,7 +27,7 @@ namespace BFoRA {
     [HarmonyPatch(typeof(BridgeControls))]
     [HarmonyPatch("RedAlert")]
     static class BFoRA_Patch {
-        static void Postfix(TraderControls __instance) {
+        static void Postfix(BridgeControls __instance) {
             if (!Main.enabled)
                 return;
 
