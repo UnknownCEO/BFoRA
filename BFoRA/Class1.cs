@@ -32,7 +32,9 @@ namespace BFoRA {
                 return;
 
             try {
-                __instance.GetComponent<BuildingInfo>().GetComponentInChildren<BridgeForcefields>().ActivateForcefield(true);
+                __instance.GetComponent<BuildingInfo>().GetComponentInChildren<BridgeForcefields>().GetComponent<PhotonView>().RPC("ActivateForcefield", PhotonTargets.All, new object[] {
+                    true
+                });
             } catch (Exception e) {
                 Main.mod.Logger.Error(e.ToString());
             }
